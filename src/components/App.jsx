@@ -11,9 +11,15 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const handlerGoodBtn = () => setGood(good => good + 1);
-  const handlerNeutralBtn = () => setNeutral(neutral => neutral + 1);
-  const handlerBadBtn = () => setBad(bad => bad + 1);
+  const feedbackHandler = e => {
+    if (e === 'Good') {
+      setGood(good + 1);
+    } else if (e === 'Neutral') {
+      setNeutral(neutral + 1);
+    } else if (e === 'Bad') {
+      setBad(bad + 1);
+    }
+  };
 
   const countTotalFeedback = () => good + neutral + bad;
 
@@ -27,9 +33,8 @@ export const App = () => {
     <SectionBlock>
       <Section title="Please leave feedback">
         <FeedbackOptions
-          handlerGoodBtn={handlerGoodBtn}
-          handlerNeutralBtn={handlerNeutralBtn}
-          handlerBadBtn={handlerBadBtn}
+          options={['Good', 'Neutral', 'Bad']}
+          onLeaveFeedback={feedbackHandler}
         />
       </Section>
       <Section title="Statistics">
