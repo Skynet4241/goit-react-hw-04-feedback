@@ -11,9 +11,9 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const handlerGoodBtn = e => setGood(good => good + 1);
-  const handlerNeutralBtn = e => setNeutral(neutral => neutral + 1);
-  const handlerBadBtn = e => setBad(bad => bad + 1);
+  const handlerGoodBtn = () => setGood(good => good + 1);
+  const handlerNeutralBtn = () => setNeutral(neutral => neutral + 1);
+  const handlerBadBtn = () => setBad(bad => bad + 1);
 
   const countTotalFeedback = () => good + neutral + bad;
 
